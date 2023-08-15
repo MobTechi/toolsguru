@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{ appConfig.appName }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="tools-list-container">
+  <!-- favorite tools -->
+  <ion-row class="tools-container">
+    <ion-text class="tools-title">Your Favorite Tools</ion-text>
+    <ion-row class="tool-list-container">
+      <ion-row class="tool-list" *ngFor="let tool of favortiesTools" (click)="openToolPage(tool.id)">
+        <img class="favorite-icon" src="/assets/tools/icons/favorite.png" (click)="removeFavorite(tool)" />
+        <ion-icon class="tool-icon" src="/assets/tools/{{tool.id}}.svg"></ion-icon>
+        <ion-text class="tool-title">{{ tool.title }}</ion-text>
+      </ion-row>
+    </ion-row>
+    <ion-row *ngIf="!favortiesTools.length" class="favorite-tool-message">
+      <ion-text class="no-favorite-message">You have not added any favourite tools!</ion-text>
+    </ion-row>
+  </ion-row>
+  <!-- all tools -->
+  <ion-row class="tools-container" *ngFor="let toolCatagory of appCatagories">
+    <ion-text class="tools-title">{{ toolCatagory }} Tools</ion-text>
+    <ion-row class="tool-list-container">
+      <ion-row class="tool-list" *ngFor="let tool of appTools[toolCatagory]" (click)="openToolPage(tool.id)">
+        <img class="favorite-icon"
+          [src]="favoriteToolIds.includes(tool.id) ? '/assets/tools/icons/favorite.png' : '/assets/tools/icons/un-favorite.png'"
+          (click)="favoriteToolIds.includes(tool.id) ? removeFavorite(tool) : addFavorite(tool)" />
+        <ion-icon class="tool-icon" src="/assets/tools/{{tool.id}}.svg"></ion-icon>
+        <ion-text class="tool-title">{{ tool.title }}</ion-text>
+      </ion-row>
+    </ion-row>
+  </ion-row>
+</ion-content>
