@@ -28,8 +28,6 @@
 
             .tool-list {
                 position: relative;
-                display: grid;
-                grid-template-rows: 1fr 1fr;
                 justify-content: center;
                 align-items: center;
                 margin: 5px;
@@ -45,21 +43,24 @@
                     height: 32px;
                     position: absolute;
                     top: 0;
+                    left: 0;
                     padding: 8px;
                     z-index: 111;
                 }
-                
-                .tool-icon {
-                    width: 100%;
-                    height: 32px;
-                    margin-top: 8px;
-                    margin-bottom: 5px;
-                }
 
-                .tool-title {
-                    font-size: 14px;
-                    text-align: center;
-                    color: var(--dark-400);
+                .tool-container {
+                    .tool-icon {
+                        width: 100%;
+                        height: 32px;
+                        margin-top: 8px;
+                        margin-bottom: 5px;
+                    }
+
+                    .tool-title {
+                        font-size: 14px;
+                        text-align: center;
+                        color: var(--dark-400);
+                    }
                 }
             }
         }
