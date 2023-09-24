@@ -7,16 +7,17 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ToastService } from './services/toast.service';
-import { LocalStorageService } from './services/local-storage.service';
+import { StorageService } from './services/storage.service';
+import { IonicStorageModule } from '@ionic/storage-angular';
 
 const PROVIDERS = [
-  LocalStorageService,
+  StorageService,
   ToastService
 ]
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, IonicModule.forRoot(), IonicStorageModule.forRoot()],
   providers: [PROVIDERS, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

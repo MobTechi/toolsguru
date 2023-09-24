@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { CONFIG } from 'src/config/app.config';
 import { APP_TOOLS, TOOLS_CATEGORY, ToolModel } from '../constants/tools.constants';
 import { ToastService } from '../services/toast.service';
-import { LocalStorageService } from '../services/local-storage.service';
 import { Router } from '@angular/router';
 import { groupBy } from 'src/app/utils';
+import { StorageService } from '../services/storage.service';
 
 @Component({
   selector: 'app-tools-list',
@@ -23,16 +23,16 @@ export class ToolsListPage {
 
   constructor(
     private router: Router,
-    private localStorageService: LocalStorageService,
+    private storageService: StorageService,
     private toastService: ToastService
   ) {
     this.fetchFavortiesTools();
-    this.fetchAppTools();
   }
 
-  public fetchFavortiesTools() {
-    this.favoriteToolIds = this.localStorageService.getItem(this.FAVORTIE_TOOLS_KEY) as string[] || [];
+  public async fetchFavortiesTools() {
+    this.favoriteToolIds = await this.storageService.getItem(this.FAVORTIE_TOOLS_KEY) as string[] || [];
     this.favortiesTools = APP_TOOLS.filter((item) => this.favoriteToolIds.includes(item.id));
+    this.fetchAppTools();
   }
 
   public fetchAppTools() {
@@ -71,6 +71,6 @@ export class ToolsListPage {
 
   public updateFavoriteTool() {
     this.favoriteToolIds = this.favortiesTools.map((item) => item.id);
-    this.localStorageService.setItem(this.FAVORTIE_TOOLS_KEY, this.favoriteToolIds);
+    this.storageService.setItem(this.FAVORTIE_TOOLS_KEY, this.favoriteToolIds);
   }
 }
