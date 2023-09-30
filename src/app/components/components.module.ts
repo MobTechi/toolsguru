@@ -7,6 +7,12 @@ import { AnalogTimeComponent } from './date-time-tools/analog-time/analog-time.c
 import { DigitalTimeComponent } from './date-time-tools/digital-time/digital-time.component';
 import { StopWatchComponent } from './date-time-tools/stop-watch/stop-watch.component';
 import { CalenderComponent } from './date-time-tools/calender/calender.component';
+import { CalculatorComponent } from './calculation/calculator/calculator.component';
+import { BmiCalculatorComponent } from './calculation/bmi-calculator/bmi-calculator.component';
+import { AgeCalculatorComponent } from './calculation/age-calculator/age-calculator.component';
+import { DiscountCalculatorComponent } from './calculation/discount-calculator/discount-calculator.component';
+import { InterestCalculatorComponent } from './calculation/interest-calculator/interest-calculator.component';
+import { FuelCalculatorComponent } from './calculation/fuel-calculator/fuel-calculator.component';
 
 const DATE_TIME_TOOLS = [
     AnalogTimeComponent,
@@ -15,12 +21,21 @@ const DATE_TIME_TOOLS = [
     CalenderComponent
 ];
 
+const CALCULATION_TOOLS = [
+  CalculatorComponent,
+  BmiCalculatorComponent,
+  AgeCalculatorComponent,
+  DiscountCalculatorComponent,
+  InterestCalculatorComponent,
+  FuelCalculatorComponent
+];
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
   ],
-  declarations: [DATE_TIME_TOOLS]
+  declarations: [DATE_TIME_TOOLS, CALCULATION_TOOLS]
 })
 export class ComponentsModule {}

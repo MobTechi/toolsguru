@@ -26,6 +26,7 @@ export class ToolsListPage {
     private storageService: StorageService,
     private toastService: ToastService
   ) {
+    this.favortiesTools = [];
     this.fetchFavortiesTools();
   }
 

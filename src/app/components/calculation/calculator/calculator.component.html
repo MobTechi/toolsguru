@@ -1,3 +1,38 @@
-<p>
-  calculator works!
-</p>
+<ion-content>
+  <!-- Calculator -->
+  <ion-card class="calculator-card">
+    <ion-grid class="calculator-grid">
+      <ion-row class="calculator-input-row">
+        <ion-input [(ngModel)]="calculation" (ionFocus)="keyboardFocus = true" (ionBlur)="keyboardFocus = false"
+          placeholder="0" class="input-field"></ion-input>
+      </ion-row>
+      <!-- Numeric and Arithmetic Buttons -->
+      <ion-row class="calculator-number-buttons">
+        <ion-button *ngFor="let button of numericButtons" class="calculator-button" expand="full" color="light"
+          (click)="appendToCalculation(button)">{{ button }}</ion-button>
+      </ion-row>
+      <ion-row class="bottom-buttons">
+        <ion-button expand="full" color="light" (click)="clear()" class="clear-button">DEL</ion-button>
+        <ion-button expand="full" color="light" (click)="appendToCalculation('0')"
+          class="calculator-button">0</ion-button>
+        <ion-button expand="full" color="light" (click)="appendToCalculation('.')"
+          class="calculator-button">.</ion-button>
+        <ion-button expand="full" color="light" (click)="appendToCalculation('+')"
+          class="calculator-button">+</ion-button>
+      </ion-row>
+    </ion-grid>
+    <ion-row class="main-buttons">
+      <ion-button expand="full" color="light" (click)="allClear()" class="all-clear-button">AC</ion-button>
+      <ion-button expand="full" color="light" (click)="calculate()" class="calculate-button">=</ion-button>
+    </ion-row>
+  </ion-card>
+  <!-- Calculation History -->
+  <ion-card class="history-card" *ngIf="calculationHistory.length">
+    <ion-card-content>
+      <ion-icon name="trash" class="clear-history" (click)="clearHistory()">Clear History</ion-icon>
+      <ion-row *ngFor="let History of calculationHistory;index as historyIndex">
+        {{ historyIndex + 1 }}. {{ History }}
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

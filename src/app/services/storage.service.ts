@@ -22,7 +22,6 @@ export class StorageService {
   private async checkStorageReady() {
     if (!this.isStorageReady) {
       await this.init();
-      throw new Error('Storage is not ready. initializing storage');
     }
   }
 
@@ -32,12 +31,12 @@ export class StorageService {
   }
 
   async getItem(key: string): Promise<any> {
-    this.checkStorageReady();
+    await this.checkStorageReady();
     return await this.storage.get(key);
   }
 
   async removeItem(key: string) {
-    this.checkStorageReady();
+    await this.checkStorageReady();
     await this.storage.remove(key);
   }
 
