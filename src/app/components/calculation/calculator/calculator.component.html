@@ -26,6 +26,8 @@
       <ion-button expand="full" color="light" (click)="calculate()" class="calculate-button">=</ion-button>
     </ion-row>
   </ion-card>
+  <!-- Calculation Error -->
+  <ion-text *ngIf="calculationError" class="calculation-error-text">{{ calculationError }}</ion-text>
   <!-- Calculation History -->
   <ion-card class="history-card" *ngIf="calculationHistory.length">
     <ion-card-content>

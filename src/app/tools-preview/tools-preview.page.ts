@@ -16,7 +16,7 @@ export class ToolsPreviewPage {
     private router: Router,
   ) {
     const routerURl = this.router.url;
-    this.toolId = routerURl.split('/').pop();
-    this.tool = APP_TOOLS.find((item) => item.id === this.toolId);
+    this.toolId = routerURl.split('/').pop()!;
+    this.tool = APP_TOOLS.find((item) => item.id === this.toolId)!;
   }
 }

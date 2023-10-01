@@ -19,7 +19,7 @@ export class ToastService {
 
   public async presentToast(
     message: string,
-    isSuccess: boolean = null,
+    isSuccess: boolean | null = null,
   ) {
     const toast = await this.toastController.create({
       message,

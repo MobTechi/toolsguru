@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CalculationService } from 'src/app/services/calculation/calculation.service';
 import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
@@ -10,17 +11,25 @@ export class CalculatorComponent {
 
   calculation = '';
   keyboardFocus = false;
+  isInfinity = false
+  calculationError = '';
   calculationHistory: string[] = [];
 
   numericButtons = ['7', '8', '9', '/', '4', '5', '6', '*', '1', '2', '3', '-'];
 
-  constructor(private storageService: StorageService) {
+  constructor(
+    private calculationService: CalculationService,
+    private storageService: StorageService
+    ) {
     this.loadHistory();
   }
 
   // Function to append a numeric value or operator to the calculation field.
   appendToCalculation(value: string) {
-    if (!this.keyboardFocus) {
+    if (this.isInfinity) {
+      this.calculation = value;
+      this.isInfinity = false;
+    } else {
       this.calculation += value;
     }
   }
@@ -40,14 +49,17 @@ export class CalculatorComponent {
   // Function to evaluate the calculation and store the result in the calculation history.
   async calculate() {
     try {
-      const result = eval(this.calculation);
+      const result = this.calculationService.evalExpression(this.calculation);
       if (result !== undefined) {
         this.calculationHistory.push(`${this.calculation} = ${result}`);
         this.calculation = result.toString();
+        this.isInfinity = this.calculation.includes('Infinity');
+        this.calculationError = '';
         await this.saveHistory();
       }
     } catch (error) {
       // Handle calculation errors here
+      this.calculationError = error as string;
       console.error('Calculation error:', error);
     }
   }

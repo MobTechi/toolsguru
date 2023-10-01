@@ -18,7 +18,7 @@ export class ToolsListPage {
   public favortiesTools: Array<ToolModel>;
   public toolsList: any;
   public appCatagories: Array<string>;
-  public appTools: { [category: string]: Array<ToolModel> };
+  public appTools!: { [category: string]: Array<ToolModel> };
   private readonly FAVORTIE_TOOLS_KEY = 'favorite_tool';
 
   constructor(
@@ -27,6 +27,8 @@ export class ToolsListPage {
     private toastService: ToastService
   ) {
     this.favortiesTools = [];
+    this.favoriteToolIds = [];
+    this.appCatagories = [];
     this.fetchFavortiesTools();
   }
 

@@ -1,0 +1,46 @@
+.speedometer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+
+  .speedometer {
+    position: relative;
+    width: 230px;
+    height: 230px;
+    background-image: url("/assets/tools/bmi-calculator.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    align-items: center;
+    justify-content: center;
+
+    .bmi-value {
+      width: 100px;
+      font-size: 36px;
+      text-align: center;
+      color: var(--info-cyan-blue);
+      background: var(--pale-yellow);
+      font-weight: bold;
+    }
+  }
+
+  .bmi-health {
+    font-size: 18px;
+    text-align: center;
+    color: var(--info-cyan-blue);
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+  }
+}
+
+.calculate-bmi {
+  width: 80%;
+  display: flex;
+  margin: 0 auto;
+  margin-top: 30px;
+  border-radius: 8px;
+  --box-shadow: none;
+  background-color: var(--info-cyan-blue);
+}

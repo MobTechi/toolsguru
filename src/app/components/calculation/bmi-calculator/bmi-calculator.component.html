@@ -1,3 +1,17 @@
-<p>
-  bmi-calculator works!
-</p>
+<ion-content class="ion-padding">
+  <ion-row class="speedometer-container">
+    <ion-row class="speedometer">
+      <ion-text class="bmi-value">{{ bmi.toFixed(1) }}</ion-text>
+    </ion-row>
+    <ion-text class="bmi-health">{{ healthRangeText }}</ion-text>
+  </ion-row>
+  <ion-item>
+    <ion-label position="floating">Height (cm)</ion-label>
+    <ion-input [(ngModel)]="height" type="number" placeholder="0"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Weight (kg)</ion-label>
+    <ion-input [(ngModel)]="weight" type="number" placeholder="0"></ion-input>
+  </ion-item>
+  <ion-button expand="full" color="light" class="calculate-bmi" (click)="calculateBMI()">Calculate BMI</ion-button>
+</ion-content>
