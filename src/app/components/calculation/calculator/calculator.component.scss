@@ -11,7 +11,7 @@
       margin-bottom: 10px;
 
       .input-field {
-        font-size: 24px;
+        font-size: 8vw;
         text-align: right;
         padding: 10px;
         border-radius: 8px;
@@ -32,7 +32,7 @@
 
       .calculator-button {
         height: 48px;
-        font-size: 18px;
+        font-size: 5vw;
         text-align: center;
         border-radius: 8px;
         --box-shadow: none;
@@ -78,7 +78,7 @@
 .calculation-error-text {
   display: flex;
   margin: 5px;
-  font-size: 14px;
+  font-size: 4vw;
   color: var(--ion-color-danger);
   margin-bottom: 0;
 }
@@ -89,12 +89,13 @@
   color: var(--dark-400);
   border: 1px solid var(--info-cyan-blue);
   border-bottom: none;
+  font-size: 4vw;
 
   .clear-history {
     position: absolute;
-    width: 18px;
-    height: 18px;
-    top: 5px;
+    width: 5vw;
+    height: 4vh;
+    top: 2px;
     right: 5px;
     color: var(--ion-color-danger);
   }

@@ -1,3 +1,25 @@
-<p>
-  age-calculator works!
-</p>
+<ion-content>
+  <ion-row class="age-calculator"></ion-row>
+  <ion-item [button]="true" lines="none" (click)="openDatePicker()">
+    <ion-text>Select your DOB - {{ dob ? dob : 'DD/MM/YYYY' }}</ion-text>
+  </ion-item>
+  <ion-card *ngIf="age">
+    <ion-card-content>
+      <ion-text>Your age is {{ age.years }} years, {{ age.months }} months, {{ age.days }} days.</ion-text>
+      <ion-text>Total Days: {{ age.totalDays }} days.</ion-text>
+    </ion-card-content>
+  </ion-card>
+  <ion-modal [isOpen]="isOpen" [initialBreakpoint]="0.57" [breakpoints]="[0, 0.25, 0.5, 0.75]" handle="false" (willDismiss)="onWillDismiss($event)">
+    <ng-template>
+      <ion-datetime
+        color="secondary"
+        presentation="date"
+        show-default-buttons="true"
+        show-default-time-label="false"
+        [max]="getTodayDate()"
+        display-timezone="false"
+        (ionChange)="calculateAge($event)"
+      ></ion-datetime>
+    </ng-template>
+  </ion-modal>
+</ion-content>

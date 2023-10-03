@@ -28,4 +28,20 @@ export class CalculationService {
       return 'Obese';
     }
   }
+
+  calculateAge(dobDate: Date): { years: number; months: number; days: number; totalDays: number } {
+    const currentDate = new Date();
+    const ageInMilliseconds = currentDate.getTime() - dobDate.getTime();
+    const remainingMilliseconds = ageInMilliseconds % (365 * 24 * 60 * 60 * 1000);
+    const years = Math.floor(ageInMilliseconds / (365 * 24 * 60 * 60 * 1000));
+    const months = Math.floor(remainingMilliseconds / (30 * 24 * 60 * 60 * 1000));
+    const days = Math.floor(remainingMilliseconds / (24 * 60 * 60 * 1000));
+    const totalDays = Math.floor(ageInMilliseconds / (24 * 60 * 60 * 1000));
+    return {
+      years,
+      months,
+      days,
+      totalDays
+    };
+  }
 }

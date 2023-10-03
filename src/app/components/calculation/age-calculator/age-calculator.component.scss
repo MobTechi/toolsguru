@@ -1,0 +1,53 @@
+.age-calculator {
+  width: 150px;
+  height: 150px;
+  background-image: url(/assets/tools/age-calculator.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: 30px auto;
+}
+
+ion-item {
+  --highlight-height: 0;
+  border-radius: 16px;
+  --background: var(--light-red);
+  border: 1px solid var(--info-cyan-blue);
+  margin: 0 15px;
+
+  ion-text {
+    width: 100%;
+    font-size: 4vw;
+    text-align: center;
+    color: var(--white);
+    font-weight: bold;
+  }
+}
+
+ion-datetime {
+  font-size: 16px;
+  --border-color: var(--info-cyan-blue);
+  --indicator-color: var(--info-cyan-blue);
+  --color: var(--white);
+  margin: 0 auto;
+}
+
+ion-card {
+  border: 1px solid var(--info-cyan-blue);
+  border-bottom: none;
+  margin: 20px 16px;
+  border-radius: 16px;
+  --background: var(--pale-yellow);
+
+  ion-card-content {
+    display: grid;
+    justify-content: center;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 4vw;
+
+    ion-text {
+      text-align: center;
+      color: var(--dark-400);
+    }
+  }
+}
