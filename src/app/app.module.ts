@@ -13,7 +13,7 @@ import { IonicStorageModule } from '@ionic/storage-angular';
 const PROVIDERS = [
   StorageService,
   ToastService
-]
+];
 
 @NgModule({
   declarations: [AppComponent],

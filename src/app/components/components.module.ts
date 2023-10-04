@@ -13,12 +13,13 @@ import { AgeCalculatorComponent } from './calculation/age-calculator/age-calcula
 import { DiscountCalculatorComponent } from './calculation/discount-calculator/discount-calculator.component';
 import { InterestCalculatorComponent } from './calculation/interest-calculator/interest-calculator.component';
 import { FuelCalculatorComponent } from './calculation/fuel-calculator/fuel-calculator.component';
+import { DirectivesModule } from '../directive/directives.module';
 
 const DATE_TIME_TOOLS = [
-    AnalogTimeComponent,
-    DigitalTimeComponent,
-    StopWatchComponent,
-    CalenderComponent
+  AnalogTimeComponent,
+  DigitalTimeComponent,
+  StopWatchComponent,
+  CalenderComponent
 ];
 
 const CALCULATION_TOOLS = [
@@ -35,6 +36,7 @@ const CALCULATION_TOOLS = [
     CommonModule,
     FormsModule,
     IonicModule,
+    DirectivesModule
   ],
   declarations: [DATE_TIME_TOOLS, CALCULATION_TOOLS]
 })

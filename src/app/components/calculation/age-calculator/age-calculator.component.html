@@ -1,7 +1,11 @@
 <ion-content>
   <ion-row class="age-calculator"></ion-row>
-  <ion-item [button]="true" lines="none" (click)="openDatePicker()">
-    <ion-text>Select your DOB - {{ dob ? dob : 'DD/MM/YYYY' }}</ion-text>
+  <ion-item lines="none">
+    <ion-label>Enter your DOB</ion-label>
+    <ion-input #dateInput appDateFormat [appDateFormat]="'DD-MM-YYYY'" placeholder="DD-MM-YYYY" [maxlength]="10" [(ngModel)]="dob" (ionInput)="onDateChange()"></ion-input>
+    <ion-button shape="round" (click)="openDatePicker()">
+      <ion-icon slot="icon-only" name="calendar"></ion-icon>
+    </ion-button>
   </ion-item>
   <ion-card *ngIf="age">
     <ion-card-content>
@@ -18,7 +22,7 @@
         show-default-time-label="false"
         [max]="getTodayDate()"
         display-timezone="false"
-        (ionChange)="calculateAge($event)"
+        (ionChange)="onDatePick($event)"
       ></ion-datetime>
     </ng-template>
   </ion-modal>

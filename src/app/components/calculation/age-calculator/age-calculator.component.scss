@@ -14,12 +14,16 @@ ion-item {
   border: 1px solid var(--info-cyan-blue);
   margin: 0 15px;
 
-  ion-text {
-    width: 100%;
+  ion-label, ion-input {
     font-size: 4vw;
-    text-align: center;
     color: var(--white);
     font-weight: bold;
+  }
+
+  ion-button {
+    height: 32px;
+    --background: var(--pale-yellow);
+    color: var(--info-cyan-blue);
   }
 }
 
