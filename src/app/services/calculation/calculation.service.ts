@@ -7,27 +7,40 @@ export class CalculationService {
 
   constructor() { }
 
+  // Calculator
+
   evalExpression(expression) {
     const cleanedExpression = expression.replace(/,/g, '.');
     return parseFloat(eval(cleanedExpression).toFixed(2));
   }
+
+  // BMI Calculator
 
   getBMIValue(weight: number, height: number): number {
     const heightInMeters = height / 100;
     return weight / (heightInMeters * heightInMeters);
   }
 
-  getBMIHealthRange(bmi: number): string {
+  getBMIHealthRange(bmi: number) {
+    let title = '';
+    let cssClass = '';
     if (bmi < 18.5) {
-      return 'Underweight';
+      title = 'Underweight';
+      cssClass = 'underweight';
     } else if (bmi >= 18.5 && bmi < 24.9) {
-      return 'Normal Weight';
+      title = 'Normal Weight';
+      cssClass = 'normal-weight';
     } else if (bmi >= 25 && bmi < 29.9) {
-      return 'Overweight';
+      title = 'Overweight';
+      cssClass = 'overweight';
     } else {
-      return 'Obese';
+      title = 'Obese';
+      cssClass = 'obese';
     }
+    return { title, cssClass };
   }
+
+  // Age Calculator
 
   isNotFutureDate(day: number, month: number, year: number): boolean {
     const currentDate = new Date();
@@ -75,5 +88,28 @@ export class CalculationService {
       days,
       totalDays
     };
+  }
+
+  // Discount Calculator
+
+  calculateDiscount(originalPrice: number, discountPercent: number) {
+    let savedAmount = (originalPrice * discountPercent) / 100;
+    const discountedPrice = this.formatPrice(originalPrice - savedAmount);
+    savedAmount = this.formatPrice(savedAmount);
+    return { discountedPrice, savedAmount };
+  }
+
+  private formatPrice(price: number) {
+    // Removes trailing zeros and decimals
+    return Number(price.toFixed(2).replace(/(\.0*|0*)$/, ''));
+  }
+
+  // Fuel Calculator
+
+  calculateFuelCost(totalDistance: number, mileage: number, petrolPrice: number, tankCapacity?: number) {
+    const fuelRequired = totalDistance / mileage;
+    const refuelCounts = tankCapacity ? Math.ceil(fuelRequired / tankCapacity) : 0;
+    const fuelCost = (fuelRequired * petrolPrice);
+    return { fuelCost, refuelCounts };
   }
 }

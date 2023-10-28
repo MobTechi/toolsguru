@@ -1,12 +1,12 @@
-<ion-content no-padding>
+<ion-content>
   <ion-card class="calc-card">
     <ion-card-content>
       <ion-input [(ngModel)]="originalPrice" type="number" placeholder="Original Price" class="input-field"></ion-input>
       <ion-input [(ngModel)]="discountPercent" type="number" placeholder="Discount Percent (%)" class="input-field"></ion-input>
-      <ion-button shape="round" class="calculate-button" [disabled]="!(this.originalPrice && this.discountPercent)" (click)="calculateDiscount()">Calculate</ion-button>
+      <ion-button shape="round" class="calculate-button" [disabled]="!(originalPrice && discountPercent)" (click)="calculateDiscount()">Calculate</ion-button>
     </ion-card-content>
   </ion-card>
-  <ion-card *ngIf="(this.originalPrice && this.discountPercent && discountedPrice)" class="result-card">
+  <ion-card *ngIf="(originalPrice && discountPercent && discountedPrice)" class="result-card">
     <ion-card-header class="result-header">Result</ion-card-header>
     <ion-card-content class="result-content">
       <ion-label class="result-label">Final Price: {{ discountedPrice }}</ion-label>

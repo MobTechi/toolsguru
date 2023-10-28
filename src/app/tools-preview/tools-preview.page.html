@@ -3,7 +3,10 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/tools"></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ tool.title }}</ion-title>
+    <ion-row class="toolbar-row">
+      <ion-icon src="/assets/tools/{{tool.id}}.svg"></ion-icon>
+      <ion-title>{{ tool.title }}</ion-title>
+    </ion-row>
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">

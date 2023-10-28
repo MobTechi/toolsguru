@@ -1,5 +1,4 @@
 <ion-content>
-  <ion-row class="age-calculator"></ion-row>
   <ion-item lines="none">
     <ion-label>Enter your DOB</ion-label>
     <ion-input #dateInput appDateFormat [appDateFormat]="'DD-MM-YYYY'" placeholder="DD-MM-YYYY" [maxlength]="10" [(ngModel)]="dob" (ionInput)="onDateChange()"></ion-input>

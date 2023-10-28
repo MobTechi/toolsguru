@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CalculationService } from 'src/app/services/calculation/calculation.service';
 
 @Component({
   selector: 'app-discount-calculator',
@@ -12,18 +13,13 @@ export class DiscountCalculatorComponent {
   public discountedPrice!: number;
   public savedAmount!: number;
 
-  constructor() { }
+  constructor(private calculationService: CalculationService) { }
 
   public calculateDiscount() {
     if (this.originalPrice && this.discountPercent) {
-      this.savedAmount = (this.originalPrice * this.discountPercent) / 100;
-      this.discountedPrice = this.formatPrice(this.originalPrice - this.savedAmount);
-      this.savedAmount = this.formatPrice(this.savedAmount);
+      const calculateDiscount = this.calculationService.calculateDiscount(this.originalPrice, this.discountPercent);
+      this.discountedPrice = calculateDiscount.discountedPrice;
+      this.savedAmount = calculateDiscount.savedAmount;
     }
-  }
-
-  formatPrice(price: number) {
-    // Removes trailing zeros and decimals
-    return Number(price.toFixed(2).replace(/(\.0*|0*)$/, ''));
   }
 }

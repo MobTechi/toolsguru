@@ -1,3 +1,19 @@
-<p>
-  fuel-calculator works!
-</p>
+<ion-content>
+  <ion-card class="calc-card">
+    <ion-card-content>
+      <ion-input [(ngModel)]="totalDistance" type="number" placeholder="Total Distance (km)" class="input-field"></ion-input>
+      <ion-input [(ngModel)]="mileage" type="number" placeholder="Vehicle Mileage (km/l)" class="input-field"></ion-input>
+      <ion-input [(ngModel)]="petrolPrice" type="number" placeholder="Petrol Price (per liter)" class="input-field"></ion-input>
+      <ion-input [(ngModel)]="tankCapacity" type="number" placeholder="Enter tank capacity in liters" class="input-field"></ion-input>
+      <ion-label class="optional">Optional</ion-label>
+      <ion-button shape="round" class="calculate-button" [disabled]="!(totalDistance && mileage && petrolPrice)" (click)="calculateFuelCost()">Calculate</ion-button>
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="(totalDistance && mileage && petrolPrice && fuelCost)" class="result-card">
+    <ion-card-header class="result-header">Result</ion-card-header>
+    <ion-card-content class="result-content">
+      <ion-label class="result-label">Total fuel cost: {{ fuelCost.toFixed(2) }}</ion-label>
+      <ion-label *ngIf="refuelCounts" class="result-label">Number of refulings: {{ refuelCounts }}</ion-label>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

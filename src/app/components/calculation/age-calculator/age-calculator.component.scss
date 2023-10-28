@@ -1,18 +1,9 @@
-.age-calculator {
-  width: 150px;
-  height: 150px;
-  background-image: url(/assets/tools/age-calculator.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  margin: 30px auto;
-}
-
 ion-item {
   --highlight-height: 0;
   border-radius: 16px;
   --background: var(--light-red);
   border: 1px solid var(--info-cyan-blue);
-  margin: 0 15px;
+  margin: 15px;
 
   ion-label, ion-input {
     font-size: 4vw;

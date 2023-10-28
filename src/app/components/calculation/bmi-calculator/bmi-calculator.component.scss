@@ -27,11 +27,23 @@
   .bmi-health {
     font-size: 5vw;
     text-align: center;
-    color: var(--info-cyan-blue);
     font-weight: bold;
     display: flex;
     justify-content: center;
     margin: 10px 0;
+
+    &.underweight,
+    &.overweight {
+      color: var(--orange)
+    }
+
+    &.normal-weight {
+      color: var(--green)
+    }
+
+    &.obese {
+      color: var(--red)
+    }
   }
 }
 

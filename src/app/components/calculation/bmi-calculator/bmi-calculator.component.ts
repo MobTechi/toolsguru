@@ -12,16 +12,20 @@ export class BmiCalculatorComponent {
   weight!: number;
   bmi: number = 0;
   healthRangeText: string = '';
+  healthRangeClass: string = '';
 
   constructor(private calculationService: CalculationService) {}
 
   calculateBMI() {
     if (this.height > 0 && this.weight > 0) {
       this.bmi = this.calculationService.getBMIValue(this.weight, this.height);
-      this.healthRangeText = this.calculationService.getBMIHealthRange(this.bmi);
+      const healthRange = this.calculationService.getBMIHealthRange(this.bmi);
+      this.healthRangeText = healthRange.title;
+      this.healthRangeClass = healthRange.cssClass;
     } else {
       this.bmi = 0;
       this.healthRangeText = '';
+      this.healthRangeClass = '';
     }
   }
 }
