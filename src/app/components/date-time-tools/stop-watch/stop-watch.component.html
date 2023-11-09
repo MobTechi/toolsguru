@@ -1,3 +1,25 @@
-<p>
-  stop-watch works!
-</p>
+<ion-grid class="stopwatch-container">
+  <ion-row class="ion-justify-content-center">
+    <ion-card class="clock">
+      {{ hours < 10 ? '0' + hours : hours }}:
+      {{ minutes < 10 ? '0' + minutes : minutes }}:
+      {{ seconds < 10 ? '0' + seconds : seconds }}
+      <span class="milliseconds">{{ milliseconds }}</span>
+    </ion-card>
+  </ion-row>
+  <ion-row class="ion-justify-content-center">
+    <ion-button shape="round" class="control-button" *ngIf="!timerRunning" (click)="startTimer()">Start</ion-button>
+    <ion-button shape="round" class="control-button" *ngIf="timerRunning" (click)="recordLap()">Lap</ion-button>
+    <ion-button shape="round" class="control-button rest" *ngIf="timerRunning" (click)="resetTimer()">Reset</ion-button>
+  </ion-row>
+  <ion-card *ngIf="laps.length > 0 && timerRunning" class="lap-card">
+    <ion-card-header class="lap-header">Lap Times</ion-card-header>
+    <ion-card-content class="lap-content">
+      <ion-list>
+        <ion-item class="lap-label" *ngFor="let lap of laps; let i = index">
+          Lap {{ i + 1 }} - {{ lap }}
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-grid>
