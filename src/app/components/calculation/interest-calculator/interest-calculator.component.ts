@@ -1,14 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { CalculationService } from 'src/app/services/calculation/calculation.service';
 
 @Component({
   selector: 'app-interest-calculator',
   templateUrl: './interest-calculator.component.html',
   styleUrls: ['./interest-calculator.component.scss'],
 })
-export class InterestCalculatorComponent  implements OnInit {
+export class InterestCalculatorComponent {
 
-  constructor() { }
+  principle!: number;
+  rate!: number;
+  time!: number;
+  unit: string;
+  result!: {
+    simple: number;
+    compound: number;
+  };
 
-  ngOnInit() {}
+  constructor(private calculationService: CalculationService) {
+    this.unit = 'years';
+  }
 
+  calculateInterest() {
+    const time = this.unit === 'months' ? (this.time / 12) : this.time;
+    this.result = {
+      simple: this.calculationService.calculateSimpleInterest(this.principle, this.rate, time),
+      compound: this.calculationService.calculateCompoundInterest(this.principle, this.rate, time)
+    };
+  }
 }

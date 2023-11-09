@@ -104,6 +104,17 @@ export class CalculationService {
     return Number(price.toFixed(2).replace(/(\.0*|0*)$/, ''));
   }
 
+  // Interest Calculator
+
+  calculateSimpleInterest(principle: number, rate: number, time: number): number {
+    return (principle * rate * time) / 100;
+  }
+
+  calculateCompoundInterest(principle: number, rate: number, time: number): number {
+    const amount = principle * (Math.pow((1 + rate / 100), time)); 
+    return amount - principle; 
+  }
+
   // Fuel Calculator
 
   calculateFuelCost(totalDistance: number, mileage: number, petrolPrice: number, tankCapacity?: number) {

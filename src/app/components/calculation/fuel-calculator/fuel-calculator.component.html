@@ -9,7 +9,7 @@
       <ion-button shape="round" class="calculate-button" [disabled]="!(totalDistance && mileage && petrolPrice)" (click)="calculateFuelCost()">Calculate</ion-button>
     </ion-card-content>
   </ion-card>
-  <ion-card *ngIf="(totalDistance && mileage && petrolPrice && fuelCost)" class="result-card">
+  <ion-card *ngIf="fuelCost" class="result-card">
     <ion-card-header class="result-header">Result</ion-card-header>
     <ion-card-content class="result-content">
       <ion-label class="result-label">Total fuel cost: {{ fuelCost.toFixed(2) }}</ion-label>

@@ -1,3 +1,21 @@
-<p>
-  interest-calculator works!
-</p>
+<ion-content>
+  <ion-card class="calc-card">
+    <ion-card-content>
+      <ion-input [(ngModel)]="principle" type="number" placeholder="Principle Amount" class="input-field"></ion-input>
+      <ion-input [(ngModel)]="rate" type="number" placeholder="Interest rate (%)" class="input-field"></ion-input>
+      <ion-input [(ngModel)]="time" type="number" placeholder="Total time" class="input-field"></ion-input>
+      <ion-select [(ngModel)]="unit">
+        <ion-select-option value="months">Months</ion-select-option>
+        <ion-select-option value="years">Years</ion-select-option>
+      </ion-select>
+      <ion-button shape="round" class="calculate-button" [disabled]="!(principle && rate && time)" (click)="calculateInterest()">Calculate</ion-button>
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="result" class="result-card">
+    <ion-card-header class="result-header">Result</ion-card-header>
+    <ion-card-content class="result-content">
+      <ion-label class="result-label">Simple Interest: {{ result.simple.toFixed(2) }}</ion-label>
+      <ion-label class="result-label">Compound Interest: {{ result.compound.toFixed(2) }}</ion-label>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
