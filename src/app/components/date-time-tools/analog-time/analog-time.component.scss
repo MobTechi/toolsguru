@@ -5,111 +5,111 @@
   padding: 1.5rem;
   border-radius: 50%;
   margin: 30px auto;
-}
 
-.outer-clock-face {
-  position: relative;
-  background: var(--ion-color-dark);
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  border-radius: 100%;
-  border: 14px solid var(--ion-color-primary);
-  box-shadow: -3px -3px 8px rgba(67, 67, 67, 0.5),
-    inset 3px 3px 8px rgba(0, 0, 0, 0.5),
-    inset -3px -3px 8px rgba(67, 67, 67, 0.5),
-    3px 3px 8px rgba(0, 0, 0, 0.3);
 
-}
+  .outer-clock-face {
+    position: relative;
+    background: var(--ion-color-dark);
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    border: 14px solid var(--ion-color-primary);
+    box-shadow: -3px -3px 8px rgba(67, 67, 67, 0.5),
+      inset 3px 3px 8px rgba(0, 0, 0, 0.5),
+      inset -3px -3px 8px rgba(67, 67, 67, 0.5),
+      3px 3px 8px rgba(0, 0, 0, 0.3);
 
-.outer-clock-face::after {
-  transform: rotate(90deg);
-}
+  }
 
-.outer-clock-face::after,
-.outer-clock-face::before,
-.outer-clock-face .marking {
-  content: "";
-  position: absolute;
-  width: 5px;
-  height: 100%;
-  background: var(--ion-color-success-contrast);
-  z-index: 0;
-  left: 49%;
-}
+  .outer-clock-face::after {
+    transform: rotate(90deg);
+  }
 
-.outer-clock-face .marking {
-  background: #bdbdcb;
-  width: 3px;
-}
+  .outer-clock-face::after,
+  .outer-clock-face::before,
+  .outer-clock-face .marking {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 100%;
+    background: var(--ion-color-success-contrast);
+    z-index: 0;
+    left: 49%;
+  }
 
-.outer-clock-face .marking.marking-one {
-  transform: rotate(30deg);
-}
+  .outer-clock-face .marking {
+    background: #bdbdcb;
+    width: 3px;
+  }
 
-.outer-clock-face .marking.marking-two {
-  transform: rotate(60deg);
-}
+  .outer-clock-face .marking.marking-one {
+    transform: rotate(30deg);
+  }
 
-.outer-clock-face .marking.marking-three {
-  transform: rotate(120deg);
-}
+  .outer-clock-face .marking.marking-two {
+    transform: rotate(60deg);
+  }
 
-.outer-clock-face .marking.marking-four {
-  transform: rotate(150deg);
-}
+  .outer-clock-face .marking.marking-three {
+    transform: rotate(120deg);
+  }
 
-.inner-clock-face {
-  position: absolute;
-  top: 10%;
-  left: 10%;
-  width: 80%;
-  height: 80%;
-  background: var(--ion-color-dark);
-  border-radius: 100%;
-  z-index: 1;
-}
+  .outer-clock-face .marking.marking-four {
+    transform: rotate(150deg);
+  }
 
-.inner-clock-face::before {
-  // content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 16px;
-  height: 16px;
-  border-radius: 18px;
-  margin-left: -9px;
-  margin-top: -6px;
-  background: #4d4b63;
-  z-index: 11;
-}
+  .inner-clock-face {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    background: var(--ion-color-dark);
+    border-radius: 100%;
+    z-index: 1;
+  }
 
-.hand {
-  width: 50%;
-  right: 50%;
-  height: 6px;
-  background: var(--ion-color-secondary-shade);
-  position: absolute;
-  top: 50%;
-  border-radius: 6px;
-  transform-origin: 100%;
-  transform: rotate(90deg);
-  transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
-}
+  .inner-clock-face::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    border-radius: 18px;
+    margin-left: -9px;
+    margin-top: -6px;
+    background: #4d4b63;
+    z-index: 11;
+  }
 
-.hand.hour-hand {
-  width: 30%;
-  z-index: 3;
-}
+  .hand {
+    width: 50%;
+    right: 50%;
+    height: 6px;
+    background: var(--ion-color-secondary-shade);
+    position: absolute;
+    top: 50%;
+    border-radius: 6px;
+    transform-origin: 100%;
+    transform: rotate(90deg);
+    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+  }
 
-.hand.min-hand {
-  height: 3px;
-  z-index: 10;
-  width: 40%;
-}
+  .hand.hour-hand {
+    width: 30%;
+    z-index: 3;
+  }
 
-.hand.second-hand {
-  background: #ee791a;
-  width: 45%;
-  height: 2px;
+  .hand.min-hand {
+    height: 3px;
+    z-index: 10;
+    width: 40%;
+  }
+
+  .hand.second-hand {
+    background: #ee791a;
+    width: 45%;
+    height: 2px;
+  }
 }

@@ -7,14 +7,18 @@
     align-items: center;
     justify-content: center;
     background-color: #1c1b1b;
-    border: 25px solid gray;
+    border: 25px solid var(--ion-color-primary);
 
     .days {
       font-size: 6px;
       margin-top: 0.5rem;
       color: gray;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
       &.active {
-        color: #ffffff; /* Style for active day */
+        color: #ffffff;
       }
     }
 
