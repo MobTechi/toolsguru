@@ -8,7 +8,7 @@ import { DateAndTimeService } from 'src/app/services/date-and-time.service';
 })
 export class AnalogTimeComponent implements AfterViewInit, OnDestroy {
 
-  private timeInterval!: any;
+  private timeInterval: any;
   @ViewChild('secondHand', { static: false }) secondHand!: ElementRef<any>;
   @ViewChild('minHand', { static: false }) minsHand!: ElementRef<any>;
   @ViewChild('hourHand', { static: false }) hourHand!: ElementRef<any>;

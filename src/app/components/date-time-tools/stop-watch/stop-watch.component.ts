@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-stop-watch',
   templateUrl: './stop-watch.component.html',
   styleUrls: ['./stop-watch.component.scss'],
 })
-export class StopWatchComponent {
+export class StopWatchComponent implements OnDestroy {
 
   hours: number = 0;
   minutes: number = 0;
@@ -13,11 +13,15 @@ export class StopWatchComponent {
   milliseconds: number = 0;
   laps: Array<string> = [];
   timerRunning: boolean = false;
-  timer: any;
+  timeInterval: any;
+
+  ngOnDestroy() {
+    this.stopTimer()
+  }
 
   startTimer() {
     this.timerRunning = true;
-    this.timer = setInterval(() => {
+    this.timeInterval = setInterval(() => {
       this.milliseconds += 10;
       if (this.milliseconds == 1000) {
         this.seconds++;
@@ -35,7 +39,9 @@ export class StopWatchComponent {
   }
 
   stopTimer() {
-    clearInterval(this.timer);
+    if (this.timeInterval) {
+      clearInterval(this.timeInterval);
+    }
     this.timerRunning = false;
   }
 

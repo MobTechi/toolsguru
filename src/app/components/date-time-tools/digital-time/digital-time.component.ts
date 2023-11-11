@@ -12,7 +12,7 @@ export class DigitalTimeComponent implements AfterViewInit {
   public currentTime: Date;
   public daysOfWeek: string[];
   public currentDayIndex: any;
-  private timeInterval!: any;
+  private timeInterval: any;
 
   constructor(private dataAndTimeService: DateAndTimeService) {
     this.currentTime = new Date()
