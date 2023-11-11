@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
 import { DateAndTimeService } from 'src/app/services/date-and-time.service';
 
 @Component({
@@ -6,32 +6,30 @@ import { DateAndTimeService } from 'src/app/services/date-and-time.service';
   templateUrl: './analog-time.component.html',
   styleUrls: ['./analog-time.component.scss'],
 })
-export class AnalogTimeComponent implements OnInit, AfterViewInit, OnDestroy {
+export class AnalogTimeComponent implements AfterViewInit, OnDestroy {
+
+  private timeInterval!: any;
   @ViewChild('secondHand', { static: false }) secondHand!: ElementRef<any>;
   @ViewChild('minHand', { static: false }) minsHand!: ElementRef<any>;
   @ViewChild('hourHand', { static: false }) hourHand!: ElementRef<any>;
-  private getInterval: any;
 
   constructor(private dataAndTimeService: DateAndTimeService) { }
 
-  ngOnInit() { }
-
   ngAfterViewInit() {
     this.updateAnalogTime();
-    this.getInterval = setInterval(() => {
+    this.timeInterval = setInterval(() => {
       this.updateAnalogTime();
     }, 1000);
   }
 
   ngOnDestroy() {
-    clearInterval(this.getInterval);
+    if (this.timeInterval) {
+      clearInterval(this.timeInterval);
+    }
   }
 
   updateAnalogTime() {
-    const seconds = this.dataAndTimeService.getSeconds();
-    const mins = this.dataAndTimeService.getMinutes();
-    const hour = this.dataAndTimeService.getHours();
-    const degrees = this.dataAndTimeService.getCalculateDegrees(seconds, mins, hour);
+    const degrees = this.dataAndTimeService.getCalculateDegrees();
     if (this.secondHand && this.minsHand && this.hourHand) {
       this.secondHand['el'].style.transform = `rotate(${degrees.seconds}deg)`;
       this.minsHand['el'].style.transform = `rotate(${degrees.minutes}deg)`;

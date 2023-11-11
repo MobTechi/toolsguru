@@ -1,5 +1,6 @@
 // Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/theming/
+@import 'material-icons/iconfont/material-icons.css';
 
 /** Ionic CSS Variables **/
 :root {
@@ -84,6 +85,7 @@
   --light-red: #df5663;
   --info-cyan-blue: #17a2b8;
   --pale-yellow: #ffe082;
+  --pacific-blue: #0172ab;
 
   /** bmi colors **/
   --orange: #FFA500;
@@ -100,4 +102,9 @@ ion-toolbar {
 
 ion-item {
   --background: transperent;
+}
+
+.material-icons {
+  width: 26px;
+  font-size: 26px;
 }

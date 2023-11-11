@@ -4,35 +4,42 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class DateAndTimeService {
-  constructor() {
-  }
 
-  public getSeconds() {
+  constructor() { }
+
+  public getSeconds(): number {
     return new Date().getSeconds();
   }
-  public getMinutes() {
+
+  public getMinutes(): number {
     return new Date().getMinutes();
   }
-  public getHours() {
-    return new Date().getHours();
 
+  public getHours(): number {
+    return new Date().getHours();
   }
-  public getAmPm() {
+
+  public getAmPm(): string {
     return new Date().getHours() >= 12 ? 'PM' : 'AM';
   }
-  public getCurrentdateIndex() {
+
+  public getCurrentdateIndex(): number {
     return (new Date().getDay() + 6) % 7;
   }
-  public getDaysOfWeek() {
+
+  public getDaysOfWeek(): string[] {
     return ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   }
 
-  getCalculateDegrees(seconds: number, minutes: number, hours: number): any {
+  public getCalculateDegrees(): { seconds: number; minutes: number; hours: number; } {
+    const seconds = this.getSeconds();
+    const minutes = this.getMinutes();
+    const hours = this.getHours();
+
     return {
       seconds: ((seconds / 60) * 360) + 90,
       minutes: ((minutes / 60) * 360) + ((seconds / 60) * 6) + 90,
       hours: ((hours / 12) * 360) + ((minutes / 60) * 30) + 90,
     };
   }
-
 }

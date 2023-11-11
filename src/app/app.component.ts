@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { CONFIG } from 'src/config/app.config';
-import { SIDE_MENUS } from 'src/config/side-menus.config';
+import { MENUS, SIDE_MENUS } from 'src/config/side-menus.config';
 import { Browser } from '@capacitor/browser';
-import config from 'capacitor.config';
-
-enum MENUS {
-  RATE_US = 'rate-us'
-};
 
 @Component({
   selector: 'app-root',
@@ -24,13 +19,31 @@ export class AppComponent {
   constructor() { }
 
   public openMenu(menuId: string) {
-    if (menuId === MENUS.RATE_US) {
-      this.appRate()
+    switch (menuId) {
+      case MENUS.MORE_APPS:
+        this.moreApps();
+        break;
+      case MENUS.RATE_US:
+        this.appRate();
+        break;
+      case MENUS.POLICY:
+        this.showPolicy();
+        break;
     }
   }
 
+  private moreApps() {
+    const moreAppsUrl = 'https://mobtechi.com/apps';
+    Browser.open({ url: moreAppsUrl });
+  }
+
   private appRate() {
-    const playStoreUrl = `https://play.google.com/store/apps/details?id=${config.appId}`;
+    const playStoreUrl = `https://play.google.com/store/apps/details?id=${this.appConfig.appId}`;
     Browser.open({ url: playStoreUrl });
+  }
+
+  private showPolicy() {
+    const policyUrl = 'https://mobtechi.com/toolsguru/privacy-policy';
+    Browser.open({ url: policyUrl });
   }
 }

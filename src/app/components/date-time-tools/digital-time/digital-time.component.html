@@ -1,13 +1,17 @@
 <ion-content>
   <ion-grid class="digital-clock">
-    <ion-col class="clock">
+    <ion-row class="holder">
+      <ion-row class="left"></ion-row>
+      <ion-row class="right"></ion-row>
+    </ion-row>
+    <ion-row class="clock">
       <ion-row class="days-week">
-        <ion-col class="days" *ngFor="let day of daysOfWeek; let i = index" [class.active]="i === currentDayIndex">
+        <ion-row class="days" *ngFor="let day of daysOfWeek; let i = index" [class.active]="i === currentDayIndex">
           {{ day }}
-        </ion-col>
+        </ion-row>
       </ion-row>
       <ion-row class="time">{{ currentTime | date: 'hh:mm:ss' }} <span class="am-pm">{{ amPm }}</span></ion-row>
       <ion-row class="date">{{ currentTime | date: 'MMMM d, y' }}</ion-row>
-    </ion-col>
+    </ion-row>
   </ion-grid>
 </ion-content>

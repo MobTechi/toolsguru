@@ -9,7 +9,7 @@
         </ion-list>
         <ion-menu-toggle auto-hide="false" *ngFor="let menu of sideMenus; let i = index">
           <ion-item lines="none" detail="false" (click)="openMenu(menu.id)">
-            <ion-icon aria-hidden="true" slot="start" [md]="menu.icon + '-sharp'"></ion-icon>
+            <span class="material-icons" slot="start">{{ menu.icon }}</span>
             <ion-label>{{ menu.title }}</ion-label>
           </ion-item>
         </ion-menu-toggle>
