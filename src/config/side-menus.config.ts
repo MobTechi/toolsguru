@@ -2,7 +2,7 @@ export enum MENUS {
     MORE_APPS = 'more-apps',
     RATE_US = 'rate-us',
     POLICY = 'policy'
-};
+}
 
 export const SIDE_MENUS = [
     {

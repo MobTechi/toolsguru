@@ -2,7 +2,7 @@ export interface ToolModel {
     id: string;
     title: string;
     category: string;
-};
+}
 
 export const TOOLS_CATEGORY = {
     DATE_AND_TIME: 'Date and Time',

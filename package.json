@@ -10,7 +10,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "lint-fix": "eslint . --fix",
     "prepush": "npm run lint && npm run build",
     "android-build": "ionic capacitor build android",
     "android-prod": "ionic capacitor build android --prod"

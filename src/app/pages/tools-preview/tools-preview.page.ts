@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { APP_TOOLS, ToolModel } from '../../constants/tools.constants';
 

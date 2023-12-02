@@ -1,13 +1,48 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true
-    },
-    "extends": "standard-with-typescript",
-    "parserOptions": {
-        "ecmaVersion": "latest",
-        "sourceType": "module"
-    },
-    "rules": {
-    }
-}
+    "root": true,
+    "ignorePatterns": ["dist/**/*", "www/", "*.spec.ts"],
+    "overrides": [
+      {
+        "files": ["*.ts"],
+        "parserOptions": {
+          "project": ["tsconfig.json"],
+          "createDefaultProgram": true
+        },
+        "extends": [
+          "plugin:@angular-eslint/recommended",
+          "plugin:@angular-eslint/template/process-inline-templates",
+          "eslint:recommended",
+          "plugin:@typescript-eslint/recommended",
+          "plugin:@typescript-eslint/recommended-requiring-type-checking"
+        ],
+        "rules": {
+          "strict": "error",
+          "no-console": "warn",
+          "eqeqeq": ["error", "always"],
+          "curly": "error",
+          "no-var": "error",
+          "prefer-const": "error",
+          "no-duplicate-imports": "error",
+          "@typescript-eslint/no-unused-vars": [
+            "error",
+            {
+              "vars": "all",
+              "args": "after-used",
+              "ignoreRestSiblings": false
+            }
+          ],
+          "@typescript-eslint/no-explicit-any": "off",
+          "@typescript-eslint/no-unsafe-assignment": "off",
+          "@typescript-eslint/no-unsafe-return": "off",
+          "@typescript-eslint/no-unsafe-member-access": "off",
+          "@typescript-eslint/no-unsafe-call": "off",
+          "@typescript-eslint/no-unsafe-argument": "off",
+          "@typescript-eslint/strict-boolean-expressions": "off",
+          "@typescript-eslint/restrict-plus-operands": "off",
+          "@typescript-eslint/restrict-template-expressions": "off",
+          "@typescript-eslint/no-floating-promises": "off"
+        }
+      }
+    ]
+  }
+  

@@ -27,7 +27,7 @@ export class ToastService {
       color: isSuccess === null ? 'warning' : (isSuccess ? 'success' : 'danger'),
     });
     toast.present();
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       toast.onDidDismiss().then((value) => {
         if (value.role === 'cancel') {
           resolve(value);

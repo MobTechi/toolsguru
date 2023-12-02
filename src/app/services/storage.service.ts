@@ -15,6 +15,7 @@ export class StorageService {
     try {
       this.isStorageReady = !!(await this.storage.create());
     } catch (error) {
+      // eslint-disable-next-line
       console.error('Error initializing storage:', error);
     }
   }
