@@ -9,11 +9,11 @@ const routes: Routes = [
   },
   {
     path: 'tools',
-    loadChildren: () => import('./tools-list/tools-list.module').then( m => m.ToolsListPageModule)
+    loadChildren: () => import('./pages/tools-list/tools-list.module').then( m => m.ToolsListPageModule)
   },
   {
     path: 'tool',
-    loadChildren: () => import('./tools-preview/tools-preview.module').then( m => m.ToolsPreviewPageModule)
+    loadChildren: () => import('./pages/tools-preview/tools-preview.module').then( m => m.ToolsPreviewPageModule)
   }
 ];
 

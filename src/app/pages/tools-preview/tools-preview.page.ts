@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { APP_TOOLS, ToolModel } from '../constants/tools.constants';
+import { APP_TOOLS, ToolModel } from '../../constants/tools.constants';
 
 @Component({
   selector: 'app-tools-preview',

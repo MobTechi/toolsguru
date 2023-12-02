@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ToolsPreviewPageRoutingModule } from './tools-preview-routing.module';
 
 import { ToolsPreviewPage } from './tools-preview.page';
-import { ComponentsModule } from '../components/components.module';
+import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
   imports: [

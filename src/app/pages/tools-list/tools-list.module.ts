@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ToolsListPageRoutingModule } from './tools-list-routing.module';
 
 import { ToolsListPage } from './tools-list.page';
-import { ComponentsModule } from '../components/components.module';
+import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
   imports: [

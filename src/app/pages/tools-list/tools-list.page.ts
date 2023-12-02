@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { CONFIG } from 'src/config/app.config';
-import { APP_TOOLS, TOOLS_CATEGORY, ToolModel } from '../constants/tools.constants';
-import { ToastService } from '../services/toast.service';
+import { APP_TOOLS, TOOLS_CATEGORY, ToolModel } from '../../constants/tools.constants';
+import { ToastService } from '../../services/toast.service';
 import { Router } from '@angular/router';
 import { groupBy } from 'src/app/utils';
-import { StorageService } from '../services/storage.service';
+import { StorageService } from '../../services/storage.service';
 
 @Component({
   selector: 'app-tools-list',
