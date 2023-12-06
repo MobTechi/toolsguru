@@ -31,11 +31,11 @@ export class AgeCalculatorComponent {
     return `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
   }
 
-  async openDatePicker() {
+  openDatePicker() {
     this.isOpen = true;
   }
 
-  onWillDismiss($event) {
+  onWillDismiss() {
     this.isOpen = false;
   }
 

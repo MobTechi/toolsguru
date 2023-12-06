@@ -93,6 +93,20 @@
   --red: #FF0000;
 }
 
+// Modal CSS
+
+ion-modal::part(backdrop) {
+  opacity: 0.5;
+  transform: none;
+  height: 100%;
+}
+
+ion-modal::part(content) {
+  opacity: 1;
+  transform: none;
+  height: 100%;
+}
+
 // customize default ion properties 
 
 ion-toolbar {
@@ -101,6 +115,8 @@ ion-toolbar {
 }
 
 ion-item {
+  --padding-start: 0;
+  --padding-end: 0;
   --background: transperent;
 }
 

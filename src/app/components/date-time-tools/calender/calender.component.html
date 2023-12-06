@@ -1,3 +1,35 @@
-<p>
-  calender works!
-</p>
+<ion-datetime
+  presentation="date"
+  [(ngModel)]="datetime"
+  preferWheel="false"
+  [highlightedDates]="highlightedDates"
+  (ionChange)="dateChange()"
+>
+</ion-datetime>
+<ion-row class="notes-middle-container">
+  <ion-text class="notes-headline">{{ datetime | date: "dd-MM-YYYY" }} ({{ currentNotes.length }} Notes)</ion-text>
+  <span class="material-icons-outlined add-note-btn" (click)="openModal()">add</span>
+</ion-row>
+<ion-row class="notes-container">
+  <ion-text class="no-notes" *ngIf="!currentNotes.length">There are no notes for this date.</ion-text>
+  <ion-card *ngIf="currentNotes.length" class="notes-card">
+    <ion-card-header class="notes-header">notes Times</ion-card-header>
+    <ion-card-content class="notes-content">
+      <ion-list>
+        <ion-item class="notes-label" *ngFor="let note of currentNotes; let i = index">
+          <ion-row class="notes-card-container" [ngClass]="{ expand: note.expand }">
+            <ion-row class="title-header">
+              <span class="title">{{ note.title }}</span>
+              <ion-icon
+                (click)="note.expand = !note.expand"
+                [name]="note.expand ? 'chevron-up' : 'chevron-down'"
+              ></ion-icon>
+              <ion-icon name="ellipsis-vertical" (click)="openModal(note)"></ion-icon>
+            </ion-row>
+            <ion-text *ngIf="note.expand" class="notes-text">{{ note.notes }}</ion-text>
+          </ion-row>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-row>

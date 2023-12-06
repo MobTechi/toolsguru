@@ -9,8 +9,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { ToastService } from './services/toast.service';
 import { StorageService } from './services/storage.service';
 import { IonicStorageModule } from '@ionic/storage-angular';
+import { ModalService } from './services/modal.service';
 
 const PROVIDERS = [
+  ModalService,
   StorageService,
   ToastService
 ];

@@ -23,15 +23,15 @@ export class StopWatchComponent implements OnDestroy {
     this.timerRunning = true;
     this.timeInterval = setInterval(() => {
       this.milliseconds += 10;
-      if (this.milliseconds == 1000) {
+      if (this.milliseconds === 1000) {
         this.seconds++;
         this.milliseconds = 0;
       }
-      if (this.seconds == 60) {
+      if (this.seconds === 60) {
         this.minutes++;
         this.seconds = 0;
       }
-      if (this.minutes == 60) {
+      if (this.minutes === 60) {
         this.hours++;
         this.minutes = 0;
       }

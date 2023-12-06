@@ -42,6 +42,7 @@
     "@ionic/storage-angular": "^4.0.0",
     "ionicons": "^7.2.1",
     "material-icons": "^1.13.12",
+    "moment": "^2.29.4",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"

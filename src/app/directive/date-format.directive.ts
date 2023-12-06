@@ -9,7 +9,7 @@ export class DateFormatDirective {
   constructor(private el: ElementRef, private renderer: Renderer2) { }
 
   @HostListener('input', ['$event'])
-  onInput(event: Event) {
+  onInput() {
     const input = this.el.nativeElement as HTMLInputElement;
     const value = input.value.replace(/\D/g, ''); // Remove non-numeric characters
     const formattedValue = this.formatDate(value);

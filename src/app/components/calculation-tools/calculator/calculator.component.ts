@@ -42,7 +42,7 @@ export class CalculatorComponent {
   }
 
   // Function to clear the calculation field.
-  async allClear() {
+  allClear() {
     this.calculation = '';
   }
 
@@ -58,8 +58,8 @@ export class CalculatorComponent {
         await this.saveHistory();
       }
     } catch (error) {
-      // Handle calculation errors here
       this.calculationError = error as string;
+      // eslint-disable-next-line
       console.error('Calculation error:', error);
     }
   }

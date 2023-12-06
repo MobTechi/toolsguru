@@ -25,6 +25,10 @@
     ],
     "useDefineForClassFields": false
   },
+  "include": [
+    "src/**/*.ts",
+    "node_modules/moment/**/*.d.ts"
+  ],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,

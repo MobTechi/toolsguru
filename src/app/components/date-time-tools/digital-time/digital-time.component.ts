@@ -1,12 +1,12 @@
-import { Component, AfterViewInit } from '@angular/core';
-import { DateAndTimeService } from 'src/app/services/date-and-time.service';
+import { Component, AfterViewInit, OnDestroy } from '@angular/core';
+import { DateAndTimeService } from 'src/app/services/date-and-time/date-and-time.service';
 
 @Component({
   selector: 'app-digital-time',
   templateUrl: './digital-time.component.html',
   styleUrls: ['./digital-time.component.scss'],
 })
-export class DigitalTimeComponent implements AfterViewInit {
+export class DigitalTimeComponent implements AfterViewInit, OnDestroy {
 
   public amPm: any;
   public currentTime: Date;

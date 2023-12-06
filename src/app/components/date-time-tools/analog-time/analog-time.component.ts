@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
-import { DateAndTimeService } from 'src/app/services/date-and-time.service';
+import { DateAndTimeService } from 'src/app/services/date-and-time/date-and-time.service';
 
 @Component({
   selector: 'app-analog-time',

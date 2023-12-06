@@ -1,0 +1,19 @@
+<span class="material-icons-outlined add-note-pulldown-btn" (click)="dismiss('cancel')">close</span>
+<ion-row class="add-note-container">
+  <ion-text class="add-note-title" position="floating">
+    <span *ngIf="isEdit">Edit {{ title }} on {{ date }}</span>
+    <span *ngIf="!isEdit">Add note for {{ date }}</span>
+  </ion-text>
+  <ion-row>
+    <ion-input [(ngModel)]="title" type="text" placeholder="Enter note title" class="input-field"></ion-input>
+    <ion-textarea [(ngModel)]="notes" type="text" placeholder="Enter a notes" class="input-field textarea"></ion-textarea>
+  </ion-row>
+  <ion-row class="button-container">
+    <ion-col *ngIf="isEdit">
+      <ion-button expand="round" class="delete" (click)="dismiss('delete')">Delete</ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button expand="round" (click)="dismiss('save')">{{ isEdit ? 'Edit' : 'Save' }}</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-row>
