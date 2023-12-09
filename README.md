@@ -1,6 +1,3 @@
-Certainly! Below is an updated `README.md` for your "ToolsGuru" Ionic Capacitor project:
-
-```markdown
 # ToolsGuru
 
 ## Overview
@@ -32,29 +29,29 @@ Follow these steps to get ToolsGuru up and running on your local machine.
 
 ### Installation
 1. Clone the repository.
-   ```bash
+   ```
    git clone https://github.com/MobTechi/ToolsGuru.git
    cd ToolsGuru
    ```
 
 2. Install dependencies.
-   ```bash
+   ```
    npm install
    ```
 
 3. Add the desired platforms (iOS/Android).
-   ```bash
+   ```
    npx cap add ios
    npx cap add android
    ```
 
 4. Build the app.
-   ```bash
+   ```
    ionic build
    ```
 
 5. Copy the built assets to the platforms.
-   ```bash
+   ```
    npx cap copy
    ```
 
@@ -64,7 +61,7 @@ Follow these steps to get ToolsGuru up and running on your local machine.
 
 ### Running the App
 - Use the standard Ionic commands to run the app on your preferred platform.
-  ```bash
+  ```
   ionic capacitor run ios
   # or
   ionic capacitor run android
@@ -74,4 +71,3 @@ Follow these steps to get ToolsGuru up and running on your local machine.
 - Special thanks to the Ionic and Capacitor teams for their incredible frameworks.
 
 Happy coding with ToolsGuru!
-```
