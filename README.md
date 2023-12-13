@@ -3,6 +3,8 @@
 ## Overview
 ToolsGuru is a cross-platform mobile app built with Ionic and Capacitor, offering a set of handy tools for time management and calculations. Visualize time elegantly, track it accurately, and simplify various calculations effortlessly.
 
+<a href='https://play.google.com/store/apps/details?id=com.mobtechi.toolsguru&pcampaignid=web_share&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>
+
 ## Features
 1. **Time Tools:**
    - Analog Clock: Elegant time visualization.
