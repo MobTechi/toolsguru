@@ -1,26 +1,26 @@
 {
   "name": "toolsguru",
   "version": "1.0.0",
-  "author": "Ionic Framework",
+  "description": "Your everyday ally, mastering tasks with 10 essential tools",
+  "author": "MobTechi",
   "homepage": "https://ionicframework.com/",
+  "private": true,
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "eslint .",
     "lint-fix": "eslint . --fix",
     "prepush": "npm run lint && npm run build",
-    "android-build": "npx cap sync && ionic capacitor build android",
-    "android-prod": "npx cap sync && ionic capacitor build android --prod"
+    "android-build": "ionic build && npx cap sync && ionic capacitor build android",
+    "android-prod": "ionic build && npx cap sync && ionic capacitor build android --prod"
   },
   "husky": {
     "hooks": {
       "pre-push": "npm run prepush"
     }
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "^16.0.0",
     "@angular/common": "^16.0.0",
@@ -84,6 +84,5 @@
     "karma-jasmine-html-reporter": "~2.0.0",
     "ts-node": "^8.3.0",
     "typescript": "^5.1.6"
-  },
-  "description": "An Ionic project"
+  }
 }

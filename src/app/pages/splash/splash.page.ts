@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { StorageService } from 'src/app/services/storage.service';
+import { timeDelay } from 'src/app/utils';
 import { CONFIG } from 'src/config/app.config';
 
 @Component({
@@ -10,6 +11,8 @@ import { CONFIG } from 'src/config/app.config';
   styleUrls: ['./splash.page.scss'],
 })
 export class SplashPage implements OnInit {
+
+  private readonly SPLASH_DATE_KEY = 'splash_date';
 
   constructor(
     private router: Router,
@@ -24,13 +27,13 @@ export class SplashPage implements OnInit {
   }
 
   async ngOnInit() {
-    const lastShownDate = await this.storageService.getItem('lastSplashScreenShown');
+    const lastShownDate = await this.storageService.getItem(this.SPLASH_DATE_KEY);
     if (!lastShownDate || !this.isToday(new Date(lastShownDate))) {
-      setTimeout(() => {
-        this.navigateToMainPage();
-        this.storageService.setItem('lastSplashScreenShown', new Date().toISOString());
-      }, 2500);
+      await timeDelay(2500);
+      this.navigateToMainPage();
+      this.storageService.setItem(this.SPLASH_DATE_KEY, new Date().toISOString());
     } else {
+      await timeDelay(500);
       this.navigateToMainPage();
     }
   }
