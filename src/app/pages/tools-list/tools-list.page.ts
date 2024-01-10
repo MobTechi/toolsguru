@@ -5,6 +5,7 @@ import { ToastService } from '../../services/toast.service';
 import { Router } from '@angular/router';
 import { groupBy } from 'src/app/utils';
 import { StorageService } from '../../services/storage.service';
+import { App } from '@capacitor/app';
 
 @Component({
   selector: 'app-tools-list',
@@ -30,6 +31,12 @@ export class ToolsListPage {
     this.favoriteToolIds = [];
     this.appCatagories = [];
     this.fetchFavortiesTools();
+    // handle back button
+    App.addListener('backButton', () => {
+      if (this.router.url === '/tools') {
+        App.exitApp();
+      }
+    });
   }
 
   public async fetchFavortiesTools() {
