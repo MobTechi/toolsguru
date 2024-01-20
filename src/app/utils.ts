@@ -19,3 +19,7 @@ export function sortByNumber(array, sortingKey, ascending = true) {
       : Number(b[sortingKey]) - Number(a[sortingKey])
   );
 }
+
+export function timeDelay(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}

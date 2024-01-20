@@ -5,16 +5,22 @@ ion-item {
   border: 1px solid var(--info-cyan-blue);
   margin: 15px;
 
-  ion-label, ion-input {
-    font-size: 4vw;
-    color: var(--white);
-    font-weight: bold;
-  }
+  .input-row {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 80% 20%;
+    padding: 5px 10px;
 
-  ion-button {
-    height: 32px;
-    --background: var(--pale-yellow);
-    color: var(--info-cyan-blue);
+    ion-input {
+      font-size: 4vw;
+      color: var(--white);
+      font-weight: bold;
+    }
+  
+    ion-button {
+      --background: var(--pale-yellow);
+      color: var(--info-cyan-blue);
+    }
   }
 }
 
