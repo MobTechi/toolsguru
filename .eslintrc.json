@@ -1,6 +1,6 @@
 {
     "root": true,
-    "ignorePatterns": ["dist/**/*", "www/", "*.spec.ts"],
+    "ignorePatterns": ["dist/**/*", "www/", "*.spec.ts", "/android"],
     "overrides": [
       {
         "files": ["*.ts"],

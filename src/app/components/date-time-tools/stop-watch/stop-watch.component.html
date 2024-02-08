@@ -8,16 +8,17 @@
     </ion-card>
   </ion-row>
   <ion-row class="ion-justify-content-center">
-    <ion-button shape="round" class="control-button" *ngIf="!timerRunning" (click)="startTimer()">Start</ion-button>
-    <ion-button shape="round" class="control-button" *ngIf="timerRunning" (click)="recordLap()">Lap</ion-button>
-    <ion-button shape="round" class="control-button rest" *ngIf="timerRunning" (click)="resetTimer()">Reset</ion-button>
+    <ion-button shape="round" class="control-button" *ngIf="timerRunning === true" (click)="recordLap()">Lap</ion-button>
+    <ion-button shape="round" class="control-button" *ngIf="timerRunning === null" (click)="startTimer()">Start</ion-button>
+    <ion-button shape="round" class="control-button stop" *ngIf="timerRunning === true" (click)="stopTimer()">Stop</ion-button>
+    <ion-button shape="round" class="control-button rest" *ngIf="timerRunning !== null" (click)="resetTimer()">Reset</ion-button>
   </ion-row>
-  <ion-card *ngIf="laps.length > 0 && timerRunning" class="lap-card">
+  <ion-card *ngIf="laps.length > 0" class="lap-card">
     <ion-card-header class="lap-header">Lap Times</ion-card-header>
     <ion-card-content class="lap-content">
       <ion-list>
-        <ion-item class="lap-label" *ngFor="let lap of laps; let i = index">
-          Lap {{ i + 1 }} - {{ lap }}
+        <ion-item class="lap-label" *ngFor="let lap of laps.reverse(); let i = index">
+          Lap {{ laps.length - i }} - {{ lap }}
         </ion-item>
       </ion-list>
     </ion-card-content>

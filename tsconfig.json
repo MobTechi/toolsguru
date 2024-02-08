@@ -27,7 +27,11 @@
   },
   "include": [
     "src/**/*.ts",
-    "node_modules/moment/**/*.d.ts"
+    "node_modules/moment/**/*.d.ts",
+    "capacitor.config.ts"
+  ],
+  "files": [
+    "capacitor.config.ts"
   ],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
