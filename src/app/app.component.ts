@@ -19,7 +19,7 @@ export class AppComponent {
   constructor() { }
 
   public openMenu(menuId: string) {
-    switch (menuId) {
+    switch (menuId as MENUS) {
       case MENUS.MORE_APPS:
         this.moreApps();
         break;

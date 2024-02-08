@@ -56,6 +56,8 @@ export class CalculatorComponent {
         this.isInfinity = this.calculation.includes('Infinity');
         this.calculationError = '';
         await this.saveHistory();
+      } else {
+        this.calculationError = 'Invalid calculation';
       }
     } catch (error) {
       this.calculationError = error as string;

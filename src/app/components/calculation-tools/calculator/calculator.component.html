@@ -3,7 +3,7 @@
   <ion-card class="calculator-card">
     <ion-grid class="calculator-grid">
       <ion-row class="calculator-input-row">
-        <ion-input [(ngModel)]="calculation" (ionFocus)="keyboardFocus = true" (ionBlur)="keyboardFocus = false"
+        <ion-input readonly [(ngModel)]="calculation" (ionFocus)="keyboardFocus = true" (ionBlur)="keyboardFocus = false"
           placeholder="0" class="input-field"></ion-input>
       </ion-row>
       <!-- Numeric and Arithmetic Buttons -->
@@ -32,8 +32,8 @@
   <ion-card class="history-card" *ngIf="calculationHistory.length">
     <ion-card-content>
       <ion-icon name="trash" class="clear-history" (click)="clearHistory()">Clear History</ion-icon>
-      <ion-row *ngFor="let History of calculationHistory;index as historyIndex">
-        {{ historyIndex + 1 }}. {{ History }}
+      <ion-row *ngFor="let History of calculationHistory.reverse();index as historyIndex">
+        {{ calculationHistory.length - historyIndex }}. {{ History }}
       </ion-row>
     </ion-card-content>
   </ion-card>

@@ -12,7 +12,7 @@ export class StopWatchComponent implements OnDestroy {
   seconds: number = 0;
   milliseconds: number = 0;
   laps: Array<string> = [];
-  timerRunning: boolean = false;
+  timerRunning: boolean | null = null;
   timeInterval: any;
 
   ngOnDestroy() {
@@ -22,7 +22,7 @@ export class StopWatchComponent implements OnDestroy {
   startTimer() {
     this.timerRunning = true;
     this.timeInterval = setInterval(() => {
-      this.milliseconds += 10;
+    this.milliseconds += 10;
       if (this.milliseconds === 1000) {
         this.seconds++;
         this.milliseconds = 0;
@@ -47,6 +47,7 @@ export class StopWatchComponent implements OnDestroy {
 
   resetTimer() {
     this.stopTimer();
+    this.timerRunning = null;
     this.hours = 0;
     this.minutes = 0;
     this.seconds = 0;
