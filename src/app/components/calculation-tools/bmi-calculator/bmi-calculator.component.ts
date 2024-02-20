@@ -10,22 +10,19 @@ export class BmiCalculatorComponent {
 
   height!: number;
   weight!: number;
-  bmi: number = 0;
-  healthRangeText: string = '';
-  healthRangeClass: string = '';
+  healthContext!: { bmi: number, title: string, meter: number, cssClass: string } | null;
 
   constructor(private calculationService: CalculationService) {}
 
+  get speedText() {
+    return this.healthContext?.bmi?.toString().split('.')[0] || '0';
+  }
+
   calculateBMI() {
     if (this.height > 0 && this.weight > 0) {
-      this.bmi = this.calculationService.getBMIValue(this.weight, this.height);
-      const healthRange = this.calculationService.getBMIHealthRange(this.bmi);
-      this.healthRangeText = healthRange.title;
-      this.healthRangeClass = healthRange.cssClass;
+      this.healthContext = this.calculationService.getBMIHealthRange(this.weight, this.height);
     } else {
-      this.bmi = 0;
-      this.healthRangeText = '';
-      this.healthRangeClass = '';
+      this.healthContext = null;
     }
   }
 }

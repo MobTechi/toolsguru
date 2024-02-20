@@ -6,22 +6,10 @@
 
   .speedometer {
     position: relative;
-    width: 230px;
+    width: 100%;
     height: 230px;
-    background-image: url("/assets/tools/bmi-calculator.svg");
-    background-repeat: no-repeat;
-    background-size: contain;
     align-items: center;
     justify-content: center;
-
-    .bmi-value {
-      width: 100px;
-      font-size: 36px;
-      text-align: center;
-      color: var(--info-cyan-blue);
-      background: var(--pale-yellow);
-      font-weight: bold;
-    }
   }
 
   .bmi-health {

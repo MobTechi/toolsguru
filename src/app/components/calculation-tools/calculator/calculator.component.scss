@@ -77,7 +77,7 @@
 .calculation-error-text {
   display: flex;
   margin: 5px;
-  font-size: 4vw;
+  font-size: 5vw;
   color: var(--ion-color-danger);
   margin-bottom: 0;
 }
@@ -88,7 +88,14 @@
   color: var(--dark-400);
   border: 1px solid var(--info-cyan-blue);
   border-bottom: none;
-  font-size: 4vw;
+
+  .history-text {
+    color: var(--dark-400);
+    font-size: 4.5vw;
+    text-decoration: underline;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
 
   .clear-history {
     position: absolute;
@@ -97,5 +104,22 @@
     top: 2px;
     right: 5px;
     color: var(--ion-color-danger);
+  }
+
+  .calculation-history-row {
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    justify-content: left;
+
+    .copy-history {
+      width: 5vw;
+      height: 3vh;
+      color: var(--ion-color-danger);
+      margin-right: 5px;
+    }
+  
+    .calculation-history-text {
+      font-size: 4vw;
+    }
   }
 }

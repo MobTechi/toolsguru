@@ -1,0 +1,100 @@
+.wrapper {
+  display: table;
+  margin: 0 auto;
+}
+
+.gauge {
+  background: var(--white);
+  max-width: 260px;
+  min-width: 260px;
+  height: 145px;
+  border-radius: 150px 150px 0 0;
+  position: relative;
+  overflow: hidden;
+
+  &.min-scaled {
+    transform: scale(0.5);
+  }
+}
+
+.gauge-center {
+  content: attr(data-before);
+  color: var(--white);
+  width: 55%;
+  height: 55%;
+  background: var(--dark-400);
+  border-radius: 100px 100px 0 0;
+  position: absolute;
+  box-shadow: 0 -13px 15px -10px rgba(0, 0, 0, 0.28);
+  right: 22%;
+  bottom: 0;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+
+  #counter {
+    color: var(--dark-400);
+    font-size: 1.2em;
+    font-weight: bold;
+    z-index: 2;
+    background: var(--pale-yellow);
+    padding: 5px;
+    width: 50px;
+    border-radius: 100px 100px 0 0;
+    text-align: center;
+  }
+}
+
+.needle {
+  width: 100px;
+  height: 5px;
+  background: var(--pale-yellow);
+  border-bottom-left-radius: 100%;
+  border-bottom-right-radius: 5px;
+  border-top-left-radius: 100%;
+  border-top-right-radius: 5px;
+  position: absolute;
+  bottom: 0px;
+  left: 12%;
+  transform-origin: 100% 4px;
+  box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.38);
+  transition: transform 0.8s;
+  transition-timing-function: cubic-bezier(0.65, 1.95, 0.03, 0.32);
+  z-index: 1;
+}
+
+.slice-colors .st {
+  position: absolute;
+  bottom: 0;
+  width: 200px;
+  height: 200px;
+
+  &.slice-item {
+    &:nth-child(1) {
+      background-color: var(--ferrari-red);
+      transform: rotate(313deg);
+      transform-origin: bottom right;
+      left: -30px;
+    }
+
+    &:nth-child(2) {
+      background-color: var(--green);
+      left: -70px;
+      transform-origin: bottom right;
+      transform: rotate(47deg);
+    }
+
+    &:nth-child(3) {
+      background-color: var(--orange);
+      left: 134px;
+      transform: rotate(90deg);
+    }
+
+    &:nth-child(4) {
+      background-color: var(--red);
+      transform: rotate(47deg);
+      transform-origin: bottom left;
+      left: 130px;
+    }
+  }
+}
