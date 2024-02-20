@@ -31,9 +31,11 @@
   <!-- Calculation History -->
   <ion-card class="history-card" *ngIf="calculationHistory.length">
     <ion-card-content>
+      <ion-text class="history-text">History</ion-text>
       <ion-icon name="trash" class="clear-history" (click)="clearHistory()">Clear History</ion-icon>
-      <ion-row *ngFor="let History of calculationHistory.reverse();index as historyIndex">
-        {{ calculationHistory.length - historyIndex }}. {{ History }}
+      <ion-row class="calculation-history-row" *ngFor="let history of calculationHistory.reverse();index as historyIndex">
+        <ion-icon name="clipboard-outline" class="copy-history" (click)="copyHistoryToCalc(history)"></ion-icon>
+        <ion-text class="calculation-history-text">{{ calculationHistory.length - historyIndex }}. {{ history }}</ion-text>
       </ion-row>
     </ion-card-content>
   </ion-card>

@@ -16,28 +16,39 @@ export class CalculationService {
 
   // BMI Calculator
 
-  getBMIValue(weight: number, height: number): number {
+  getBMIHealthRange(weight: number, height: number) {
     const heightInMeters = height / 100;
-    return weight / (heightInMeters * heightInMeters);
-  }
-
-  getBMIHealthRange(bmi: number) {
+    const doubleHeightInMeters = heightInMeters * heightInMeters;
+    let bmi = weight / doubleHeightInMeters;
+    let meter = Math.round((bmi / 50) * 100);
     let title = '';
     let cssClass = '';
-    if (bmi < 18.5) {
-      title = 'Underweight';
-      cssClass = 'underweight';
-    } else if (bmi >= 18.5 && bmi < 24.9) {
-      title = 'Normal Weight';
-      cssClass = 'normal-weight';
-    } else if (bmi >= 25 && bmi < 29.9) {
-      title = 'Overweight';
-      cssClass = 'overweight';
-    } else {
-      title = 'Obese';
-      cssClass = 'obese';
+    const bmiValue = Number(bmi.toFixed(1));
+    switch (true) {
+      case bmiValue < 18.5:
+        title = 'Underweight';
+        cssClass = 'underweight';
+        break;
+      case bmiValue >= 18.5 && bmiValue <= 24.9:
+        title = 'Normal Weight';
+        cssClass = 'normal-weight';
+        break;
+      case bmiValue >= 25 && bmiValue <= 29.9:
+        title = 'Overweight';
+        cssClass = 'overweight';
+        break;
+      case bmiValue >= 30 && bmiValue <= 40:
+        title = 'Obese';
+        cssClass = 'obese';
+        break;
+      default:
+        title = 'Wrong Input';
+        cssClass = 'obese';
+        meter = 0;
+        bmi = 0;
+        break;
     }
-    return { title, cssClass };
+    return { bmi, title, cssClass, meter };
   }
 
   // Age Calculator

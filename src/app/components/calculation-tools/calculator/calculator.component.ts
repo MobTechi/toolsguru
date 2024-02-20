@@ -83,4 +83,9 @@ export class CalculatorComponent {
     this.calculationHistory = [];
     this.saveHistory();
   }
+
+  copyHistoryToCalc(HistoryText) {
+    this.allClear();
+    this.appendToCalculation(HistoryText);
+  }
 }

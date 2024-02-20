@@ -18,6 +18,7 @@ import { FuelCalculatorComponent } from './calculation-tools/fuel-calculator/fue
 import { DirectivesModule } from '../directive/directives.module';
 // UI components
 import { AddNoteComponent } from './UI/add-note/add-note.component';
+import { SpeedometerComponent } from './UI/speedometer/speedometer.component';
 
 const DATE_TIME_TOOLS = [
   AnalogTimeComponent,
@@ -36,7 +37,8 @@ const CALCULATION_TOOLS = [
 ];
 
 const UI_COMPONENTS = [
-  AddNoteComponent
+  AddNoteComponent,
+  SpeedometerComponent
 ];
 
 export const ROUTES =  [
